@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"/>
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/logo_2"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_message"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+
+        android:text="friends"
+        android:textSize="5sp"
+        app:chipIcon="@drawable/_01"
+
+
+        app:layout_constraintTop_toTopOf="@id/iv_logo"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        app:layout_constraintStart_toEndOf="@id/iv_logo"
+        android:layout_marginStart="12dp"/>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:chipIcon="@drawable/ic_baseline_flag_24"
+
+        app:layout_constraintStart_toEndOf="@id/chip_message"
+        app:layout_constraintTop_toTopOf="@id/iv_logo"
+        app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+        android:layout_marginStart="12dp"/>
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="SomeName,"
+        app:layout_constraintStart_toStartOf="@id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="19"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="@id/tv_name"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"/>
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="City,"
+        app:layout_constraintStart_toStartOf="@id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="15km"
+        app:layout_constraintStart_toEndOf="@id/tv_city"
+        app:layout_constraintTop_toTopOf="@id/tv_city"
+        app:layout_constraintBottom_toBottomOf="@id/tv_city"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_more_horiz_24"
+        app:layout_constraintTop_toTopOf="@id/tv_distance"
+        app:layout_constraintBottom_toBottomOf="@id/tv_distance"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="28dp"/>
+
+    <ImageButton
+        android:id="@+id/ibtn_instant_match"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/image_230"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ibtn_superlike"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"/>
+
+    <ImageButton
+        android:id="@+id/ibtn_superlike"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/image_31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ibtn_tray"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"/>
+
+    <ImageButton
+        android:id="@+id/ibtn_tray"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/image_1755"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_hobby_doc"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/view_hobby_doc"
+
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@drawable/roundedbackground"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ibtn_play_description"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="48dp">
+        <ImageView
+            android:id="@+id/iv_hobby_one"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundedbutton"
+            android:src="@drawable/image_1301"
+            android:padding="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"/>
+
+        <ImageView
+            android:id="@+id/iv_hobby_two"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundedbutton"
+            android:src="@drawable/image_1207"
+            android:padding="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"/>
+
+        <!--<ImageView
+            android:id="@+id/iv_hobby_three"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundedbutton"
+            android:src="@drawable/image_1690"
+            android:padding="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"/>-->
+
+        <ImageView
+            android:id="@+id/iv_hobby_four"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundedbutton"
+            android:src="@drawable/image_1656"
+            android:padding="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"/>
+
+        <ImageView
+            android:id="@+id/iv_hobby_five"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/roundedbutton"
+            android:src="@drawable/image_1098"
+            android:padding="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:elevation="8dp"/>
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/ibtn_play_description"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="48dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
