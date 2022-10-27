@@ -10,10 +10,11 @@ import com.devbeginner.testtaskjointalknow.Utils.stopPlay
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewPager2: ViewPager2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var pos = 0
         val viewPager2Adapter = UserAdapter() {
 
             if (it.isPlaying) stopPlay(this, it) else play(it)
@@ -59,16 +60,39 @@ class MainActivity : AppCompatActivity() {
 
 
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+
+                if(positionOffset == 0f) {
+                    pos = position
+                }
+
+                if (viewPager2Adapter.mPlayer.isPlaying) {
+                    users[pos].isPlayingDescription = false
+                    viewPager2Adapter.setItemList(users)
+                    viewPager2Adapter.notifyItemChanged(pos)
+                    stopPlay(this@MainActivity, viewPager2Adapter.mPlayer)
+                }
+
+            }
             override fun onPageScrollStateChanged(state: Int) {
                 super.onPageScrollStateChanged(state)
 
                 if (state == ViewPager2.SCROLL_STATE_DRAGGING) {
-                    if (viewPager2Adapter.mPlayer.isPlaying) {
+
+                    /*if (viewPager2Adapter.mPlayer.isPlaying) {
                         stopPlay(this@MainActivity, viewPager2Adapter.mPlayer)
-                    }
+                    }*/
                 }
 
             }
+
+
         })
         viewPager2.adapter = viewPager2Adapter
     }

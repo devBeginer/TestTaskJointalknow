@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.devbeginner.testtaskjointalknow.Utils.stopPlay
 
-class UserAdapter(val onClick: (mPlayer: MediaPlayer) -> Unit) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(val onClick: (mPlayer: MediaPlayer) -> Unit) :
+    RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     private var values: List<User> = ArrayList()
     lateinit var mPlayer: MediaPlayer
@@ -29,7 +30,6 @@ class UserAdapter(val onClick: (mPlayer: MediaPlayer) -> Unit) : RecyclerView.Ad
     }
 
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val context = holder.itemView.context
         holder.nameTextView?.text = "${values[position].name}, "
@@ -43,17 +43,24 @@ class UserAdapter(val onClick: (mPlayer: MediaPlayer) -> Unit) : RecyclerView.Ad
             stopPlay(context, mPlayer)
         }
 
+        if (!values[position].isPlayingDescription) {
+            holder.playButton?.setImageResource(R.drawable.ic_baseline_play_arrow_24)
+        } else {
+            holder.playButton?.setImageResource(R.drawable.ic_baseline_stop_24)
+        }
         var playState = PlayState.PLAY
         holder.setOnClickPlay {
-            if (playState == PlayState.PLAY){
+            if (playState == PlayState.PLAY) {
                 playState = PlayState.STOP
+                values[position].isPlayingDescription = true
                 holder.playButton?.setImageResource(R.drawable.ic_baseline_stop_24)
-            }else{
+            } else {
                 playState = PlayState.PLAY
+                values[position].isPlayingDescription = false
                 holder.playButton?.setImageResource(R.drawable.ic_baseline_play_arrow_24)
             }
             onClick(mPlayer)
-            //if (mPlayer.isPlaying) stopPlay() else play()
+
         }
     }
 
